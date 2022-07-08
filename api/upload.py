@@ -1,7 +1,6 @@
 import os
 from uuid import uuid1
 from flask import Flask, jsonify, request, render_template
-import api
 
 # 设置允许上传的文件格式
 ALLOW_EXTENSIONS = ['png', 'jpg', 'jpeg']

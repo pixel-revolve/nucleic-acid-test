@@ -5,20 +5,21 @@ import api.qr_code as qr_code
 import api.upload as upload
 import api.watermark as watermark
 from flasgger import Swagger
+from flask_cors import CORS
 
 from config.setting import DESCRIPTION, ROUTE, TERMSOFSERVICE, TITLE, VERSION
 
 app = Flask(__name__)
-print(app.static_folder)
+CORS(app, supports_credentials=True)
 app.config["JSON_AS_ASCII"] = False  # jsonify返回的中文正常显示
 
 
-swagger_config = Swagger.DEFAULT_CONFIG
-swagger_config['title'] = TITLE
-swagger_config['version'] = VERSION
-swagger_config['termsOfService'] = TERMSOFSERVICE
-swagger_config['specs'][0]['route'] = ROUTE
-swagger_config['description'] = DESCRIPTION
+swagger_config = Swagger.DEFAULT_CONFIG  # Swagger通过配置信息渲染SwaggerUI展示信息
+swagger_config['title'] = TITLE  # 接口文档标题
+swagger_config['version'] = VERSION  # 版本号
+swagger_config['termsOfService'] = TERMSOFSERVICE  # 条文说明
+swagger_config['specs'][0]['route'] = ROUTE  # 接口集合路由
+swagger_config['description'] = DESCRIPTION  # 描述
 
 Swagger(app, config=swagger_config)
 
@@ -65,6 +66,12 @@ def manufacturer_delete(id):
     ---
     tags:
       - 生产商接口
+    parameters:
+      - name: id
+        in: path
+        type: string
+        required: true
+        description: 生产商ID
     responses:
       1001:
         description: 不可传入空
