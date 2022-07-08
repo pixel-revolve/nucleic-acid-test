@@ -125,9 +125,9 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
-# Pyre type checker
+# Pyre type checker`
 .pyre/
 .idea
-static/images/*
-static/images/qrcode/*
-static/images/watermark/*
+static/images/*.*
+static/images/qrcode/
+static/images/watermark/
