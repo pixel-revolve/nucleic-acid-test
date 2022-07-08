@@ -17,3 +17,10 @@ EXPIRE_TIME = 600
 
 # MD5加密盐值
 MD5_SALT = "2022#%*"
+
+# Swagger文档配置
+TITLE = '核酸自检接口文档'
+VERSION = '1.0.0'
+TERMSOFSERVICE = '/terms'
+ROUTE = '/nucleic-acid-test'
+DESCRIPTION = '核算自检后台交接文档'

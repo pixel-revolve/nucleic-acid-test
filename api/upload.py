@@ -1,18 +1,19 @@
 import os
-
-from flask import Flask, Response, request, render_template
-from werkzeug.utils import secure_filename
+from uuid import uuid1
+from flask import Flask, jsonify, request, render_template
+import api
 
 # 设置允许上传的文件格式
 ALLOW_EXTENSIONS = ['png', 'jpg', 'jpeg']
-
-basedir = os.path.abspath('.')
-images_dir = basedir+"\\static\\images\\"
+IMAGES_FILE = 'static/images/'
 
 
-# 判断文件后缀是否在列表中
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[-1] in ALLOW_EXTENSIONS
+
+
+def generateName(filename):
+    return str(uuid1()) + '.' + filename.rsplit('.', 1)[1]
 
 
 def uploads():
@@ -20,12 +21,13 @@ def uploads():
         # 获取post过来的文件名称，从name=file参数中获取
         file = request.files['file']
         if file and allowed_file(file.filename):
-            print(file.filename)
-            # secure_filename方法会去掉文件名中的中文
-            file_name = secure_filename(file.filename)
+            # 使用自定义文件名保存图片（这里采用UUID）
+            filename = generateName(file.filename)
+            path = os.path.join(IMAGES_FILE, filename)
+            print(path)
             # 保存图片
-            file.save(os.path.join(images_dir, file_name))
-            return "success"
+            file.save(path)
+            return jsonify({"code": 0, "data": path, "msg": "上传成功"})
         else:
-            return "格式错误，请上传jpg格式文件"
+            return jsonify({"code": 1005, "msg": "格式错误,请上传jpg格式文件"})
     return render_template("index.html")
