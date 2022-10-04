@@ -6,7 +6,7 @@ baseUrl = "/api/manufacturer"
 
 
 def get_all_manufacturer():
-    """获取所有生产厂商信息"""
+    """获取所有生产厂商信def 息"""
     sql = "SELECT * FROM manufacturer"
     data = db.select_db(sql)
     print("获取所有生产厂商信息 == >> {}".format(data))

@@ -4,6 +4,7 @@ import api.manufacturer_detection_box as manufacturer_detection_box
 import api.qr_code as qr_code
 import api.upload as upload
 import api.watermark as watermark
+import api.user as user
 from flasgger import Swagger
 from flask_cors import CORS
 
@@ -333,3 +334,29 @@ def watermark_extract(filePath):
         description: 水印提取成功
     """
     return watermark.watermark_extract(filePath)
+
+@app.route(user.baseUrl+"/register", methods=["POST"])
+def user_register():
+  """
+  用户注册
+  ---
+  tags:
+    - 用户注册接口
+  responses:
+    0:
+      description: 注册成功
+  """
+  return user.register()
+
+@app.route(user.baseUrl+"/event", methods=["POST"])
+def insert_event():
+  """
+  事件记录
+  ---
+  tags:
+    - 事件记录接口
+  responses:
+    0:
+      description: 记录成功
+  """
+  return user.insert_event()

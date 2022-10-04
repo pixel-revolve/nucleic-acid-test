@@ -2,16 +2,16 @@
 SERVER_PORT = 9999
 
 # MySQL配置
-MYSQL_HOST = "47.100.124.7"
+MYSQL_HOST = "x.x.x.x"
 MYSQL_PORT = 3306
 MYSQL_USER = "root"
-MYSQL_PASSWD = "123456"
+MYSQL_PASSWD = "xxx"
 MYSQL_DB = "nucleic_acid_test"
 
 # Redis配置
-REDIS_HOST = "192.168.89.128"
+REDIS_HOST = "x.x.x.x"
 REDIS_PORT = 6379
-REDIS_PASSWD = "123456"
+REDIS_PASSWD = "xxx"
 # token过期时间(单位：秒)
 EXPIRE_TIME = 600
 
@@ -23,4 +23,4 @@ TITLE = '核酸自检接口文档'
 VERSION = '1.0.0'
 TERMSOFSERVICE = '/terms'
 ROUTE = '/nucleic-acid-test'
-DESCRIPTION = '核算自检后台交接文档'
+DESCRIPTION = '核算自检后台交接文档 Created By Lin&Pixel'
