@@ -2,10 +2,10 @@
 SERVER_PORT = 9999
 
 # MySQL配置
-MYSQL_HOST = "x.x.x.x"
+MYSQL_HOST = "10.15.120.205"
 MYSQL_PORT = 3306
-MYSQL_USER = "root"
-MYSQL_PASSWD = "xxx"
+MYSQL_USER = "maiqu"
+MYSQL_PASSWD = "dev-2333"
 MYSQL_DB = "nucleic_acid_test"
 
 # Redis配置

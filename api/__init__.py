@@ -5,8 +5,10 @@ import api.qr_code as qr_code
 import api.upload as upload
 import api.watermark as watermark
 import api.user as user
+import api.covid_detect as covid_detect
 from flasgger import Swagger
 from flask_cors import CORS
+from common.check import detect
 
 from config.setting import DESCRIPTION, ROUTE, TERMSOFSERVICE, TITLE, VERSION
 
@@ -360,3 +362,18 @@ def insert_event():
       description: 记录成功
   """
   return user.insert_event()
+
+
+@app.route(covid_detect.baseUrl, methods=["POST"])
+def check():
+  """
+  事件记录
+  ---
+  tags:
+    - 事件记录接口
+  responses:
+    0:
+      description: 记录成功
+  """
+  return covid_detect.check()
+
