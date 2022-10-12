@@ -337,43 +337,44 @@ def watermark_extract(filePath):
     """
     return watermark.watermark_extract(filePath)
 
+
 @app.route(user.baseUrl+"/register", methods=["POST"])
 def user_register():
-  """
-  用户注册
-  ---
-  tags:
-    - 用户注册接口
-  responses:
-    0:
-      description: 注册成功
-  """
-  return user.register()
+    """
+    用户注册
+    ---
+    tags:
+      - 用户注册接口
+    responses:
+      0:
+        description: 注册成功
+    """
+    return user.register()
+
 
 @app.route(user.baseUrl+"/event", methods=["POST"])
 def insert_event():
-  """
-  事件记录
-  ---
-  tags:
-    - 事件记录接口
-  responses:
-    0:
-      description: 记录成功
-  """
-  return user.insert_event()
+    """
+    事件记录
+    ---
+    tags:
+      - 事件记录接口
+    responses:
+      0:
+        description: 记录成功
+    """
+    return user.insert_event()
 
 
 @app.route(covid_detect.baseUrl, methods=["POST"])
 def check():
-  """
-  事件记录
-  ---
-  tags:
-    - 事件记录接口
-  responses:
-    0:
-      description: 记录成功
-  """
-  return covid_detect.check()
-
+    """
+    图片识别
+    ---
+    tags:
+      - 图片识别接口
+    responses:
+      0:
+        description: 记录成功
+    """
+    return covid_detect.covid_check()
